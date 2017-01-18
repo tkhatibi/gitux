@@ -10,11 +10,14 @@ server.set('view engine', $config.view.engine)
 server.set('views', path.join(__dirname, $config.view.dir))
 
 // serves static assets
-server.use($config.staticFiles.route, express.static($config.staticFiles.path))
+server.use($config.assets.baseUrl, express.static($config.assets.path))
 
 // serves index for other requests
 server.use((req, res, next) => {
-  res.render('index')
+  res.render('index', {
+    assetsBaseUrl: $config.assets.baseUrl,
+    reactWrapperId: $config.reactWrapperId,
+  })
 })
 
 server.listen($config.port, $config.host, () => {
