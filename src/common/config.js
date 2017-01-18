@@ -8,6 +8,11 @@ const config = {
   env: env.NODE_ENV || 'dev',
   port: env.PORT || 8000,
   host: env.HOST || 'localhost',
+  reactWrapperId: 'root',
+  assets: {
+    baseUrl: '/static',
+    path: path.join(r, 'public'),
+  },
   get baseUrl() {
     return `http://${this.host}:${this.port}`
   },
