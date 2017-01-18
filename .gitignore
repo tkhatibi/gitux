@@ -1,1 +1,4 @@
 node_modules/
+
+# Webpack bundled files
+public/bundle.*
