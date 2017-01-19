@@ -4,7 +4,8 @@
   <title>Gitux</title>
 </head>
 <body>
-  <div id="<%- reactWrapperId %>"></div>
+  <div id="<%- reactWrapperId %>"><div><%- initialComponent %></div></div>
+  <script>window.__INITIAL_STATE__ = <%-JSON.stringify(initialState)%></script>
   <script src="<%- assetsBaseUrl %>/bundle.js"></script>
 </body>
 </html>

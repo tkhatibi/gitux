@@ -17,6 +17,8 @@ server.use((req, res, next) => {
   res.render('index', {
     assetsBaseUrl: $config.assets.baseUrl,
     reactWrapperId: $config.reactWrapperId,
+    initialComponent: '',
+    initialState: {},
   })
 })
 
