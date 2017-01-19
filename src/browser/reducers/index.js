@@ -3,6 +3,7 @@
  */
 import { combineReducers } from 'redux'
 import { routerReducer } from 'react-router-redux'
+import { reducer as formReducer } from 'form-redux'
 
 // Import Reducers
 import auth from './auth-reducer'
@@ -14,5 +15,6 @@ export default combineReducers({
   auth,
   main,
   panel,
+  form: formReducer,
   routing: routerReducer,
 })
