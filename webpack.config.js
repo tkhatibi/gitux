@@ -1,13 +1,13 @@
 var config = require('./src/common/config').default
 var webpack = require('webpack')
 
-var PROD = (process.env.PROD_ENV || 'dev') === 'prod'
+var isProd = config.env === 'prod'
 
 module.exports = {
   entry: './src/browser/index.js',
   output: {
     path: config.assets.path,
-    filename: PROD ? 'bundle.min.js' : 'bundle.js'
+    filename: isProd ? 'bundle.min.js' : 'bundle.js'
   },
   module: {
     loaders: [
@@ -17,7 +17,7 @@ module.exports = {
       },
     ],
   },
-  plugins: PROD
+  plugins: isProd
     ? [
       new webpack.optimize.UglifyJsPlugin({
         compress: { warnings: false }
