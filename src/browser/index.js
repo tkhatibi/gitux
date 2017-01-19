@@ -11,7 +11,7 @@ import config from './config'
 import reducers from './reducers'
 import routes from './routes'
 import App from './components/App/App'
-import callApiMiddleware from './helpers/call-api-middleware'
+import callApiMiddleware from './helpers/middlewares/call-api-middleware'
 
 function configureStore(initialState = {}) {
   // Middleware and store enhancers
