@@ -3,18 +3,19 @@ import {
   Route,
   IndexRoute,
 } from 'react-router'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import injectTapEventPlugin from 'react-tap-event-plugin'
-injectTapEventPlugin()
 
-import Home from './Home'
-import NotFound from './NotFound'
+import Main from './components/Main/Main'
+import Login from './components/Login/Login'
+import Panel from './components/Panel/Panel'
+import Dashboard from './components/Dashboard/Dashboard'
+import NotFound from './components/NotFound/NotFound'
 
 export default (
-  <Route
-    path="/"
-    component={MuiThemeProvider} >
-    <IndexRoute component={Home} />
+  <Route path="/" component={Main}>
+    <Route path="login" component={Login}/>
+    <Route component={Panel}>
+      <IndexRoute component={Dashboard}/>
+    </Route>
     <Route path="*" component={NotFound} />
   </Route>
 )
