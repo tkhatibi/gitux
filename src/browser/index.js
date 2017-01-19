@@ -10,6 +10,7 @@ import thunk from 'redux-thunk'
 import config from './config'
 import reducers from './reducers'
 import routes from './routes'
+import App from './App'
 import callApiMiddleware from '../helpers/call-api-middleware'
 
 function configureStore(initialState = {}) {
@@ -25,14 +26,14 @@ function configureStore(initialState = {}) {
 
   const store = applyMiddleware(callApiMiddleware)(createStore)(reducers, initialState, compose(...enhancers))
 
-  // For hot reloading reducers
-  if (module.hot) {
-    // Enable Webpack hot module replacement for reducers
-    module.hot.accept('./reducers', () => {
-      const nextReducer = require('./reducers').default // eslint-disable-line global-require
-      store.replaceReducer(nextReducer)
-    })
-  }
+  // // For hot reloading reducers
+  // if (module.hot) {
+  //   // Enable Webpack hot module replacement for reducers
+  //   module.hot.accept('./reducers', () => {
+  //     const nextReducer = require('./reducers').default // eslint-disable-line global-require
+  //     store.replaceReducer(nextReducer)
+  //   })
+  // }
 
   return store
 }
@@ -45,24 +46,26 @@ const store = configureStore(window.__INITIAL_STATE__)
 
 const history = syncHistoryWithStore(browserHistory, store)
 
-render(
-  <AppContainer>
-    <App store={store} routes={routes} history={history} />
-  </AppContainer>,
-  mountApp
-)
+render(<App store={store} routes={routes} history={history} />, mountApp)
 
-// For hot reloading of react components
-if (module.hot) {
-  module.hot.accept('./App', () => {
-    // If you use Webpack 2 in ES modules mode, you can
-    // use <App /> here rather than require() a <NextApp />.
-    const NextApp = require('./App').default // eslint-disable-line global-require
-    render(
-      <AppContainer>
-        <NextApp store={store} routes={routes} history={history} />
-      </AppContainer>,
-      mountApp
-    )
-  })
-}
+// render(
+//   <AppContainer>
+//     <App store={store} routes={routes} history={history} />
+//   </AppContainer>,
+//   mountApp
+// )
+
+// // For hot reloading of react components
+// if (module.hot) {
+//   module.hot.accept('./App', () => {
+//     // If you use Webpack 2 in ES modules mode, you can
+//     // use <App /> here rather than require() a <NextApp />.
+//     const NextApp = require('./App').default // eslint-disable-line global-require
+//     render(
+//       <AppContainer>
+//         <NextApp store={store} routes={routes} history={history} />
+//       </AppContainer>,
+//       mountApp
+//     )
+//   })
+// }
