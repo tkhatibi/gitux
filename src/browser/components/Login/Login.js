@@ -5,7 +5,10 @@ import LoginForm from './LoginForm'
 import { login } from '../../actions/auth-actions'
 
 const Login = props => (
-  <LoginForm onSubmit={props.handleSubmit} />
+  // {/*<LoginForm onSubmit={props.handleSubmit} />*/}
+  <a href={$config.githubApi.authorizeUrl}>
+      
+  </a>
 )
 
 const mapStateToProps = state => ({
