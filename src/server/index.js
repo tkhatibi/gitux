@@ -23,11 +23,8 @@ server.use($config.assets.baseUrl, express.static($config.assets.path))
 // github authorization callback
 server.use('/auth-cb', (req, res, next) => {
   const accessTokenUrl = $config.githubApi.accessTokenUrl(req.query.code)
-  console.log(accessTokenUrl)
   axios.post(accessTokenUrl)
     .then(githubRes => {
-      console.log('------------------------')
-      console.log(githubRes.data)
       res.redirect(`/login?${githubRes.data}`)
     })
     .catch(error => {
