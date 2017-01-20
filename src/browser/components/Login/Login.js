@@ -1,11 +1,21 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
-export default class LoginContainer extends Component {
-  render() {
-    return (
-      <div>
-        Login
-      </div>
-    )
+import LoginForm from './LoginForm'
+import { login } from '../../actions/auth-actions'
+
+const Login = props => (
+  <LoginForm onSubmit={props.handleSubmit} />
+)
+
+const mapStateToProps = state => ({
+  auth: state.auth,
+})
+
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  handleSubmit: values => {
+    dispatch(login(values.username))
   }
-}
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login)
