@@ -1,6 +1,5 @@
 import { browserHistory } from 'react-router'
 
-import axios from '../lib/expands/axios'
 import { saveAccessToken } from '../lib/helpers/auth-helper'
 
 import * as types from '.'
