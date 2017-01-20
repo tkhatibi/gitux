@@ -1,24 +1,33 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import LoginForm from './LoginForm'
-import { login } from '../../actions/auth-actions'
+import { authorize, navigateToPanel } from '../../actions/auth-actions'
 
-const Login = props => (
-  // {/*<LoginForm onSubmit={props.handleSubmit} />*/}
-  <a href={$config.githubApi.authorizeUrl}>
-    Login (Github)
-  </a>
-)
+class Login extends Component {
+  componentDidMount() {
+    const accessToken  = this.props.location.query.access_token
+    if (this.props.isLoggedIn) {
+      this.props.navigateToPanel()
+    } else if (accessToken) {
+      this.props.authorize(accessToken)
+    }
+  }
+  render() {
+    return (
+      <a href={$config.githubApi.authorizeUrl}>
+        Login (Github)
+      </a>
+    )
+  }
+}
 
-const mapStateToProps = state => ({
-  auth: state.auth,
+const mapStateToProps = (state, ownProps) => ({
+  isLoggedIn: state.auth.isLoggedIn,
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  handleSubmit: values => {
-    dispatch(login(values.username))
-  }
+  authorize: accessToken => dispatch(authorize(accessToken)),
+  navigateToPanel: () => dispatch(navigateToPanel()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login)
