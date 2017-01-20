@@ -26,6 +26,9 @@ var config = {
     baseUrl: '/static',
     path: _path2.default.join(r, 'public')
   },
+  gihubApi: {
+    clientId: 'c2984d0f08b17be909b1',
+  },
   get baseUrl() {
     return 'http://' + this.host + ':' + this.port;
   },
