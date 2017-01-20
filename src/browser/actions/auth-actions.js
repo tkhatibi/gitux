@@ -1,4 +1,4 @@
-import axios from '../helpers/axios'
+import axios from '../lib/expands/axios'
 import { browserHistory } from 'react-router'
 
 import * as types from '.'

@@ -11,7 +11,7 @@ global.$config = require('./config').default
 import reducers from './reducers'
 import routes from './routes'
 import App from './components/App/App'
-import callApiMiddleware from './helpers/middlewares/call-api-middleware'
+import callApiMiddleware from './lib/middlewares/call-api-middleware'
 
 function configureStore(initialState = {}) {
   // Middleware and store enhancers
