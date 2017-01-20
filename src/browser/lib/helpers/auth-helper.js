@@ -1,5 +1,5 @@
-export isLoggedIn = () => !!localStorage.accessToken
+export const isLoggedIn = () => !!localStorage.accessToken
 
-export saveAccessToken = accessToken => localStorage.accessToken = accessToken
+export const saveAccessToken = accessToken => localStorage.accessToken = accessToken
 
-export getAccessToken = () => localStorage.accessToken
+export const getAccessToken = () => localStorage.accessToken
