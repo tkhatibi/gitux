@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react'
-import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import { navigateToLogin } from '../../actions/auth-actions'
@@ -14,7 +13,6 @@ class Panel extends Component {
   }
 
   render() {
-    // const bindedActionCreators = bindActionCreators(actions, dispatch)
     if (this.props.isLoggedIn) {
       return this.props.children
     } else {
