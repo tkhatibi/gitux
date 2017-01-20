@@ -1,8 +1,12 @@
+import { browserHistory } from 'react-router'
+
 import * as types from '.'
 
-export function navigateToSpecifiedUrl() {
-  return {
-    type: types.NAVIGATE_TO_SPECIFIED_URL,
+export const navigateToPanel = () => (dispatch, getState) => {
+  const { redirectUrl } = getState().panel
+  dispatch({
+    type: types.NAVIGATE_TO_PANEL,
     redirectUrl,
-  }
+  })
+  browserHistory.push(redirectUrl)
 }
