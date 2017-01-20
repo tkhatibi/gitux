@@ -28,6 +28,7 @@ var config = {
   },
   gihubApi: {
     clientId: 'c2984d0f08b17be909b1',
+    scope: 'repo',
   },
   get baseUrl() {
     return 'http://' + this.host + ':' + this.port;
