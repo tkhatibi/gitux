@@ -26,7 +26,7 @@ var config = {
     baseUrl: '/static',
     path: _path2.default.join(r, 'public')
   },
-  gihubApi: {
+  githubApi: {
     clientId: 'c2984d0f08b17be909b1',
     scope: 'repo',
   },
