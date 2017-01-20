@@ -1,7 +1,8 @@
 import * as types from '../actions'
+import { isLoggedIn } from '../lib/helpers/auth-helper'
 
 const initialState = {
-  isLoggedIn: !!localStorage.accessToken,
+  isLoggedIn: isLoggedIn(),
   redirectUrl: '/panel',
   // redirectUrl: $config.dashboardUrl,
 }
