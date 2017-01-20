@@ -1,8 +1,11 @@
+import { browserHistory } from 'react-router'
+
 import * as types from '.'
 
-export function setRedirectUrl(redirectUrl) {
-  return {
-    type: types.SET_REDIRECT_URL,
+export const navigateToLogin = redirectUrl => (dispatch, getState) => {
+  dispatch({
+    type: types.NAVIGATE_TO_PANEL,
     redirectUrl,
-  }
+  })
+  browserHistory.replace("/login")
 }
