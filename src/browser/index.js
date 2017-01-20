@@ -7,7 +7,7 @@ import { syncHistoryWithStore } from 'react-router-redux'
 import thunk from 'redux-thunk'
 // import { AppContainer } from 'react-hot-loader'
 
-import config from './config'
+global.$config = require('./config').default
 import reducers from './reducers'
 import routes from './routes'
 import App from './components/App/App'
@@ -37,8 +37,6 @@ function configureStore(initialState = {}) {
 
   return store
 }
-
-global.$config = config
 
 const mountApp = document.getElementById($config.reactWrapperId)
 

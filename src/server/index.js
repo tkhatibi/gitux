@@ -1,9 +1,8 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import axios from 'axios'
-import config from './config'
 
-global.$config = config
+global.$config = require('./config').default
 
 const server = express()
 

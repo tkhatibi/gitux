@@ -2,7 +2,8 @@ import * as types from '../actions'
 
 const initialState = {
   isLoggedIn: !!localStorage.accessToken,
-  redirectUrl: '/',
+  redirectUrl: '/panel',
+  // redirectUrl: $config.dashboardUrl,
 }
 
 export default function(state = initialState, action) {
@@ -11,7 +12,7 @@ export default function(state = initialState, action) {
     case types.NAVIGATE_TO_LOGIN:
       return {...state, redirectUrl: action.redirectUrl}
     case types.NAVIGATE_TO_PANEL:
-      return {...state, redirectUrl: '/'}
+      return {...state, redirectUrl: '/panel'}
     case types.AUTHORIZE:
       return {...state, isLoggedIn: true}
     default:
