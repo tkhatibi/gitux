@@ -2,7 +2,7 @@ import axios from 'axios'
 import { getAccessToken } from '../helpers/auth-helper'
 
 export default axios.create({
-  // baseURL: '/api/',
+  baseURL: 'https://api.github.com/',
   timeout: 3000,
   headers: {
     Authorization: `token ${getAccessToken()}`,
