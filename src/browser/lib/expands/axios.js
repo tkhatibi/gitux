@@ -3,7 +3,7 @@ import { getAccessToken } from '../helpers/auth-helper'
 
 export default axios.create({
   baseURL: 'https://api.github.com/',
-  timeout: 3000,
+  timeout: 10000,
   headers: {
     Authorization: `token ${getAccessToken()}`,
     'X-Requested-With': 'XMLHttpRequest',
