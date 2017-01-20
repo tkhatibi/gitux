@@ -22,7 +22,6 @@ export const navigateToPanel = () => (dispatch, getState) => {
   const { redirectUrl } = getState().auth
   dispatch({
     type: types.NAVIGATE_TO_PANEL,
-    redirectUrl,
   })
   browserHistory.push(redirectUrl)
 }
