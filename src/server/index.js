@@ -1,5 +1,6 @@
-import path from 'path'
 import express from 'express'
+import bodyParser from 'body-parser'
+import axios from 'axios'
 import config from './config'
 
 global.$config = config
@@ -7,12 +8,34 @@ global.$config = config
 const server = express()
 
 server.set('view engine', $config.view.engine)
-server.set('views', path.join(__dirname, $config.view.dir))
+server.set('views', $config.view.dir)
 
-// serves static assets
+// To support JSON-encoded bodies
+server.use(bodyParser.json())
+// To support URL-encoded bodies
+server.use(bodyParser.urlencoded({
+  extended: true
+}))
+
+// serve static assets
 server.use($config.assets.baseUrl, express.static($config.assets.path))
 
-// serves index for other requests
+// github authorization callback
+server.use('/auth-cb', (req, res, next) => {
+  const accessTokenUrl = $config.githubApi.accessTokenUrl(req.query.code)
+  console.log(accessTokenUrl)
+  axios.post(accessTokenUrl)
+    .then(githubRes => {
+      console.log('------------------------')
+      console.log(githubRes.data)
+      res.redirect(`/login?${githubRes.data}`)
+    })
+    .catch(error => {
+      res.send(error)
+    })
+})
+
+// render index for other requests
 server.use((req, res, next) => {
   res.render('index', {
     assetsBaseUrl: $config.assets.baseUrl,

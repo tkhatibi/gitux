@@ -6,8 +6,8 @@ import { login } from '../../actions/auth-actions'
 
 const Login = props => (
   // {/*<LoginForm onSubmit={props.handleSubmit} />*/}
-  <a target='_blank' href={$config.githubApi.authorizeUrl}>
-      Login (Github)
+  <a href={$config.githubApi.authorizeUrl}>
+    Login (Github)
   </a>
 )
 
