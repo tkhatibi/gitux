@@ -3,8 +3,8 @@
  */
 
  // redirect url action types
-export const SET_REDIRECT_URL = 'SET_REDIRECT_URL'
-export const NAVIGATE_TO_REDIRECT_URL = 'NAVIGATE_TO_REDIRECT_URL'
+export const NAVIGATE_TO_LOGIN = 'NAVIGATE_TO_LOGIN'
+export const NAVIGATE_TO_PANEL = 'NAVIGATE_TO_PANEL'
 
 /**
  * API action types
