@@ -11,13 +11,10 @@ import Panel from './components/Panel/Panel'
 import Dashboard from './components/Dashboard/Dashboard'
 import NotFound from './components/NotFound/NotFound'
 
-// helpers
-import { authorize } from './helpers/auth'
-
 // routes
 export default (
   <Route path="/" component={Main}>
-    <Route path="login" component={Login} onEnter={authorize} />
+    <Route path="login" component={Login} />
     <Route component={Panel}>
       <IndexRoute component={Dashboard}/>
     </Route>
