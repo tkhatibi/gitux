@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 
-import { navigateToPanel } from '../../actions/main-actions'
+import { navigateToPanel } from '../../actions/auth-actions'
 
 injectTapEventPlugin()
 

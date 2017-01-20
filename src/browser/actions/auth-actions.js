@@ -1,17 +1,21 @@
-import * as types from '.'
 import axios from '../helpers/axios'
+import { browserHistory } from 'react-router'
 
-export const login = username => (dispatch, getState) => {
-  console.log(username)
-  axios.get(`${$config.apiUrl}/users/${username}`).then(response => {
-    console.log(response)
+import * as types from '.'
+
+export const navigateToLogin = redirectUrl => (dispatch, getState) => {
+  dispatch({
+    type: types.NAVIGATE_TO_PANEL,
+    redirectUrl,
   })
-  // alert(token)
+  browserHistory.replace("/login")
 }
-  // return {
-  //   type: types.LOGIN,
-  //   token,
-  //   shouldCallAPI: state => !state.auth.loggedIn,
-  //   callAPI: () => axios.get(`${$config.apiUrl}/zen`),
-  // }
-// }
+
+export const navigateToPanel = () => (dispatch, getState) => {
+  const { redirectUrl } = getState().panel
+  dispatch({
+    type: types.NAVIGATE_TO_PANEL,
+    redirectUrl,
+  })
+  browserHistory.push(redirectUrl)
+}

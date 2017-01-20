@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import { navigateToLogin } from '../../actions/panel-actions'
+import { navigateToLogin } from '../../actions/auth-actions'
 
 class Panel extends Component {
   componentDidMount() {
