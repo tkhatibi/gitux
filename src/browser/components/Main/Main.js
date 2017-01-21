@@ -1,11 +1,15 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+
+// Material UI
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import injectTapEventPlugin from 'react-tap-event-plugin'
+require('react-tap-event-plugin')()
 
+// components
+import TopBar from './TopBar'
+
+// actions
 import { navigateToPanel } from '../../actions/auth-actions'
-
-injectTapEventPlugin()
 
 class Main extends Component {
   componentDidUpdate(prevProps) {
@@ -22,7 +26,10 @@ class Main extends Component {
   render() {
     return (
       <MuiThemeProvider>
-        {this.props.children}
+        <div>
+          <TopBar isLoggedIn={this.props.isLoggedIn} />
+          {this.props.children}
+        </div>
       </MuiThemeProvider>
     )
   }
