@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 // Material UI
 import AppBar from 'material-ui/AppBar'
@@ -8,7 +9,7 @@ import LoggedUserMenu from './LoggedUserMenu'
 import LoginButton from './LoginButton'
 import ToggleDrawerButton from './ToggleDrawerButton'
 
-export default props => (
+const TopBar = props => (
   <AppBar
     title="Gitux"
     onTitleTouchTap={()=>{}}
@@ -16,3 +17,12 @@ export default props => (
     iconElementLeft={<ToggleDrawerButton />}
   />
 )
+
+const mapStateToProps = (state, ownProps) => ({
+  isLoggedIn: state.auth.isLoggedIn,
+})
+
+const mapDispatchToProps = (dispatch, ownProps) => ({
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(TopBar)

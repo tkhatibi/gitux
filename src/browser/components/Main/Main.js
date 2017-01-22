@@ -27,7 +27,7 @@ class Main extends Component {
     return (
       <MuiThemeProvider>
         <div>
-          <TopBar isLoggedIn={this.props.isLoggedIn} />
+          <TopBar />
           {this.props.children}
         </div>
       </MuiThemeProvider>
