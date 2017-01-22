@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router'
 
 // Material UI
 import IconMenu from 'material-ui/IconMenu'
@@ -16,6 +17,10 @@ const LoggedUserMenu = props => (
     targetOrigin={{horizontal: 'right', vertical: 'top'}}
     anchorOrigin={{horizontal: 'right', vertical: 'top'}}
   >
+    <MenuItem
+      primaryText="Panel" 
+      containerElement={<Link to="/panel" />}
+    />
     <MenuItem onTouchTap={props.logout} primaryText="Sign out" />
   </IconMenu>
 )
