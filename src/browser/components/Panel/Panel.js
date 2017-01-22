@@ -9,7 +9,7 @@ import RaisedButton from 'material-ui/RaisedButton'
 import { navigateToLogin } from '../../actions/auth-actions'
 
 class Panel extends Component {
-  componentWillMount() {
+  componentDidMount() {
     if (!this.props.isLoggedIn) {
       // set the current url/path for future redirection (we use a Redux action)
       // then redirect (we use a React Router method)
@@ -18,6 +18,9 @@ class Panel extends Component {
   }
 
   render() {
+    if (!this.props.isLoggedIn) {
+      return null
+    }
     return (
       <div className="panel">
         <div className="panel-buttons">
