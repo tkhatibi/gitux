@@ -11,7 +11,7 @@ class Dashboard extends Component {
     if (this.props.profile === null) {
       return (
         <div>
-          Dashboard
+          Please wait ...
         </div>
       )
     }
