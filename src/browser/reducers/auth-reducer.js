@@ -9,12 +9,14 @@ const initialState = {
 
 export default function(state = initialState, action) {
   switch (action.type) {
+    case types.AUTHORIZE:
+      return {...state, isLoggedIn: true}
+    case types.LOGOUT:
+      return {...state, isLoggedIn: false}
     case types.NAVIGATE_TO_LOGIN:
       return {...state, redirectUrl: action.redirectUrl}
     case types.NAVIGATE_TO_PANEL:
       return {...state, redirectUrl: '/panel'}
-    case types.AUTHORIZE:
-      return {...state, isLoggedIn: true}
     default:
       return state
   }

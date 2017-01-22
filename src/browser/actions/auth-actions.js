@@ -1,14 +1,21 @@
 import { browserHistory } from 'react-router'
 
-import { saveAccessToken } from '../lib/helpers/auth-helper'
-
 import * as types from '.'
+import { saveAccessToken, removeAccessToken } from '../lib/helpers/auth-helper'
 
 export const authorize = accessToken => (dispatch, getState) => {
   saveAccessToken(accessToken)
   dispatch({
     type: types.AUTHORIZE,
   })
+}
+
+export const logout = () => (dispatch, getState) => {
+  removeAccessToken()
+  dispatch({
+    type: types.LOGOUT,
+  })
+  browserHistory.replace("/login")
 }
 
 export const navigateToLogin = redirectUrl => (dispatch, getState) => {
