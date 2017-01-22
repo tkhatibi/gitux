@@ -12,6 +12,7 @@ import Guest from './components/Guest/Guest'
 import Login from './components/Login/Login'
 import Panel from './components/Panel/Panel'
 import Dashboard from './components/Dashboard/Dashboard'
+import Repositories from './components/Repositories/Repositories'
 import NotFound from './components/NotFound/NotFound'
 
 // routes
@@ -25,6 +26,9 @@ export default (
     </Route>
     <Route path="panel" component={Panel}>
       <IndexRoute component={Dashboard}/>
+      <Route path="repos">
+        <IndexRoute component={Repositories} />
+      </Route>
     </Route>
     <Route path="*" component={NotFound} />
   </Route>

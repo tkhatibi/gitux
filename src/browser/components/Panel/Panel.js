@@ -1,10 +1,15 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router'
 
+// Material UI
+import RaisedButton from 'material-ui/RaisedButton'
+
+// actions
 import { navigateToLogin } from '../../actions/auth-actions'
 
 class Panel extends Component {
-  componentDidMount() {
+  componentWillMount() {
     if (!this.props.isLoggedIn) {
       // set the current url/path for future redirection (we use a Redux action)
       // then redirect (we use a React Router method)
@@ -13,11 +18,21 @@ class Panel extends Component {
   }
 
   render() {
-    if (this.props.isLoggedIn) {
-      return this.props.children
-    } else {
-      return null
-    }
+    return (
+      <div className="panel">
+        <div className="panel-buttons">
+          <Link to="/panel">
+            <RaisedButton label='Dashboard' />
+          </Link>
+          <Link to="/panel/repos">
+            <RaisedButton label='Repositories' />
+          </Link>
+        </div>
+        <div className="panel-content">
+          {this.props.children}
+        </div>
+      </div>
+    )
   }
 }
 
