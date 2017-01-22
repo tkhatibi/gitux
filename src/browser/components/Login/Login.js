@@ -11,11 +11,7 @@ class Login extends Component {
     }
   }
   render() {
-    return (
-      <a href={$config.githubApi.authorizeUrl}>
-        Login (Github)
-      </a>
-    )
+    return null
   }
 }
 

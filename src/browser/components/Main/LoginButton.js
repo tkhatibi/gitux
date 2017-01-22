@@ -4,11 +4,13 @@ import React, { Component } from 'react'
 import FlatButton from 'material-ui/FlatButton'
 
 export default class LoginButton extends Component {
-  static muiName = 'FlatButton';
+  static muiName = 'FlatButton'
 
   render() {
     return (
-      <FlatButton {...this.props} label="Login" />
+      <a href={$config.githubApi.authorizeUrl}>
+        <FlatButton {...this.props} label="Login" />
+      </a>
     )
   }
 }

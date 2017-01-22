@@ -3,6 +3,8 @@ import { browserHistory } from 'react-router'
 import * as types from '.'
 import { saveAccessToken, removeAccessToken } from '../lib/helpers/auth-helper'
 
+const loginUrl = "/"
+
 export const authorize = accessToken => (dispatch, getState) => {
   saveAccessToken(accessToken)
   dispatch({
@@ -15,7 +17,7 @@ export const logout = () => (dispatch, getState) => {
   dispatch({
     type: types.LOGOUT,
   })
-  browserHistory.replace("/login")
+  browserHistory.replace(loginUrl)
 }
 
 export const navigateToLogin = redirectUrl => (dispatch, getState) => {
@@ -23,7 +25,7 @@ export const navigateToLogin = redirectUrl => (dispatch, getState) => {
     type: types.NAVIGATE_TO_LOGIN,
     redirectUrl,
   })
-  browserHistory.replace("/login")
+  browserHistory.replace(loginUrl)
 }
 
 export const navigateToPanel = () => (dispatch, getState) => {

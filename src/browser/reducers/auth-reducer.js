@@ -1,10 +1,12 @@
 import * as types from '../actions'
 import { isLoggedIn } from '../lib/helpers/auth-helper'
 
+const dashboardUrl = '/panel'
+// const dashboardUrl = $config.dashboardUrl
+
 const initialState = {
   isLoggedIn: isLoggedIn(),
-  redirectUrl: '/panel',
-  // redirectUrl: $config.dashboardUrl,
+  redirectUrl: dashboardUrl,
 }
 
 export default function(state = initialState, action) {
@@ -16,7 +18,7 @@ export default function(state = initialState, action) {
     case types.NAVIGATE_TO_LOGIN:
       return {...state, redirectUrl: action.redirectUrl}
     case types.NAVIGATE_TO_PANEL:
-      return {...state, redirectUrl: '/panel'}
+      return {...state, redirectUrl: dashboardUrl}
     default:
       return state
   }
