@@ -1,3 +1,5 @@
+import { browserHistory } from 'react-router'
+
 import * as TYPES from '.'
 import axios from '../lib/expands/axios'
 
@@ -29,4 +31,14 @@ export const getCurrentUserRepositories = (params = {
     callAPI: () => axios().get(`/user/repos`, { params }),
     params,
   }
+}
+
+export const search = query => ({
+  type: TYPES.SEARCH_REPOSITORIES,
+  callAPI: () => axios().get(`/search/repositories?q=${encodeURI(query)}`),
+  query,
+})
+
+export const navigateToSearch = q => (dispatch, getState) => {
+  browserHistory.push({pathname: '/search', query: {q}})
 }

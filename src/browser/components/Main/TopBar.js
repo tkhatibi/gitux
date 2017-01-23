@@ -12,7 +12,11 @@ import ToggleDrawerButton from './ToggleDrawerButton'
 
 const TopBar = props => (
   <AppBar
-    title={<Link to="/" >Gitux</Link>}
+    title={
+      <div>
+        <Link to="/" >Gitux</Link>
+      </div>
+    }
     onTitleTouchTap={()=>{}}
     iconElementRight={props.isLoggedIn ? <LoggedUserMenu /> : <LoginButton />}
     iconElementLeft={<ToggleDrawerButton />}

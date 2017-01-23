@@ -1,7 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
+// actions
 import { getCurrentUserProfile } from '../../actions/user-actions'
+
+// components
+import Loading from '../Loading/Loading'
 
 class Dashboard extends Component {
   componentDidMount() {
@@ -9,11 +13,7 @@ class Dashboard extends Component {
   }
   render() {
     if (this.props.profile === null) {
-      return (
-        <div>
-          Please wait ...
-        </div>
-      )
+      return <Loading />
     }
     return (
       <div>

@@ -8,6 +8,7 @@ import {
 import Main from './components/Main/Main'
 import Public from './components/Public/Public'
 import Home from './components/Home/Home'
+import Search from './components/Search/Search'
 import Guest from './components/Guest/Guest'
 import Login from './components/Login/Login'
 import Panel from './components/Panel/Panel'
@@ -20,6 +21,7 @@ export default (
   <Route path="/" component={Main}>
     <Route component={Public}>
       <IndexRoute component={Home}/>
+      <Route path="search" component={Search} />
     </Route>
     <Route component={Guest}>
       <Route path="login" component={Login} />
