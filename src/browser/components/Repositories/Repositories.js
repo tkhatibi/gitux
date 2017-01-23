@@ -5,13 +5,23 @@ import { Link } from 'react-router'
 // Material UI
 import RaisedButton from 'material-ui/RaisedButton'
 
+// components
+import Loading from '../Loading/Loading'
+
 // actions
+import { getCurrentUserRepositories } from '../../actions/repository-actions'
 
 class Repositories extends Component {
+  componentDidMount() {
+    this.props.getCurrentUserRepositories()
+  }
   render() {
+    if (!this.props.repositories) {
+      return <Loading />
+    }
     return (
       <div>
-        Your Repositories
+        {JSON.stringify(this.props.repositories)}
       </div>
     )
   }
@@ -23,9 +33,11 @@ class Repositories extends Component {
 // the current position in the app.
 
 const mapStateToProps = (state, ownProps) => ({
+  repositories: state.repository.current,
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
+  getCurrentUserRepositories: parameters => dispatch(getCurrentUserRepositories(parameters))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Repositories)
