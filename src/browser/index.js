@@ -16,7 +16,7 @@ import callApiMiddleware from './lib/middlewares/call-api-middleware'
 function configureStore(initialState = {}) {
   // Middleware and store enhancers
   const enhancers = [
-    applyMiddleware(thunk),
+    applyMiddleware(thunk, callApiMiddleware),
   ]
 
   // Dev tools extension enhancer
@@ -24,7 +24,8 @@ function configureStore(initialState = {}) {
     enhancers.push(window.devToolsExtension())
   }
 
-  const store = applyMiddleware(callApiMiddleware)(createStore)(reducers, initialState, compose(...enhancers))
+  // const store = applyMiddleware(callApiMiddleware)(createStore)(reducers, initialState, compose(...enhancers))
+  const store = createStore(reducers, initialState, compose(...enhancers))
 
   // // For hot reloading reducers
   // if (module.hot) {
