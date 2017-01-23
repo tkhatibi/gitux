@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router'
 
 // Material UI
 import AppBar from 'material-ui/AppBar'
@@ -11,7 +12,7 @@ import ToggleDrawerButton from './ToggleDrawerButton'
 
 const TopBar = props => (
   <AppBar
-    title="Gitux"
+    title={<Link to="/" >Gitux</Link>}
     onTitleTouchTap={()=>{}}
     iconElementRight={props.isLoggedIn ? <LoggedUserMenu /> : <LoginButton />}
     iconElementLeft={<ToggleDrawerButton />}
