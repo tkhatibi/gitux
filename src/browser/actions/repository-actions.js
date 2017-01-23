@@ -1,7 +1,7 @@
 import * as TYPES from '.'
 import axios from '../lib/expands/axios'
 
-export const getCurrentUserRepositories = (parameters = {
+export const getCurrentUserRepositories = (params = {
   visibility : 'all',
   // Can be one of all, public, or private
   
@@ -18,9 +18,15 @@ export const getCurrentUserRepositories = (parameters = {
   direction : 'asc',
   // Can be one of asc or desc.
   // when using full_name: asc; otherwise desc
-}) => ({
-  type: TYPES.GET_CURRENT_USER_REPOSITORIES,
-  shouldCallAPI: state => state.repository.current === null,
-  callAPI: () => axios().get(`/user/repos`, parameters),
-  parameters,
-})
+}) => {
+  if (params.type) {
+    delete params.visibility
+    delete params.affiliation
+  }
+  return {
+    type: TYPES.GET_CURRENT_USER_REPOSITORIES,
+    shouldCallAPI: state => state.repository.current === null,
+    callAPI: () => axios().get(`/user/repos`, { params }),
+    params,
+  }
+}
