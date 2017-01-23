@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router'
 
 // Material UI
-import RaisedButton from 'material-ui/RaisedButton'
 
 // components
 import Loading from '../Loading/Loading'
