@@ -1,9 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router'
-
-// Material UI
-import RaisedButton from 'material-ui/RaisedButton'
 
 // actions
 import { navigateToLogin } from '../../actions/auth-actions'
@@ -24,12 +20,6 @@ class Panel extends Component {
     return (
       <div className="panel">
         <div className="panel-buttons">
-          <Link to="/panel">
-            <RaisedButton label='Dashboard' />
-          </Link>
-          <Link to="/panel/repos">
-            <RaisedButton label='Repositories' />
-          </Link>
         </div>
         <div className="panel-content">
           {this.props.children}

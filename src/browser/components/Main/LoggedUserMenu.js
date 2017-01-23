@@ -18,10 +18,17 @@ const LoggedUserMenu = props => (
     anchorOrigin={{horizontal: 'right', vertical: 'top'}}
   >
     <MenuItem
-      primaryText="Panel" 
+      primaryText="Dashboard"
       containerElement={<Link to="/panel" />}
     />
-    <MenuItem onTouchTap={props.logout} primaryText="Sign out" />
+    <MenuItem
+      primaryText="Repositories"
+      containerElement={<Link to="/panel/repos" />}
+    />
+    <MenuItem
+      primaryText="Sign out"
+      onTouchTap={props.logout}
+    />
   </IconMenu>
 )
 
