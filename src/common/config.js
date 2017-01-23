@@ -28,7 +28,7 @@ var config = {
   },
   githubApi: {
     clientId: 'c2984d0f08b17be909b1',
-    scope: 'repo',
+    scope: 'user,repo,gist,admin:org,notifications',
   },
   get baseUrl() {
     return 'http://' + this.host + ':' + this.port;
