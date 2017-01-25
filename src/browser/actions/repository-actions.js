@@ -42,3 +42,7 @@ export const search = query => ({
 export const navigateToSearch = q => (dispatch, getState) => {
   browserHistory.push({pathname: '/search', query: {q}})
 }
+
+export const toggleForkFilter = () => ({
+  type: TYPES.TOGGLE_FORK_FILTER,
+})
