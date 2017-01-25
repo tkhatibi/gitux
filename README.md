@@ -10,9 +10,11 @@
 
 `npm run dev` to make bundle file
 
+# GitHub Api
+
 see https://vimeo.com/173947281
 
-# Redirect users to request GitHub access
+### Redirect users to request GitHub access
 
 enter to bellow address in your browser:
 
@@ -20,7 +22,7 @@ enter to bellow address in your browser:
 
 click authorize application
 
-# GitHub redirects back to your site
+### GitHub redirects back to your site
 
 you will redirect to an address like this:
 
@@ -32,7 +34,7 @@ copy {{CURRENT_USER_CODE}} and put it in the bellow url
 
 post this url by `axios`
 
-# GitHub response
+### GitHub response
 
 you will recieve a line like bellow:
 
@@ -40,7 +42,7 @@ you will recieve a line like bellow:
 
 `scope` is permissions that user checked in authorize page, You must save them to handle access_level in your app 
 
-# Third party requests
+### Third party requests
 
 Send all requests now with `?access_token={{CURRENT_USER_ACCESS_TOKEN}}`, because some urls are private
 and third party app must demonstrate to github that it has permission to these urls
