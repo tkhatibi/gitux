@@ -6,6 +6,7 @@ import { search } from '../../actions/repository-actions'
 
 // components
 import Loading from '../Loading/Loading'
+import Repository from '../Repository/Repository'
 
 class Search extends Component {
   componentDidMount() {
@@ -20,7 +21,7 @@ class Search extends Component {
     }
     return (
       <div>
-        {JSON.stringify(this.props.result)}
+        {this.props.result.items.map(item => <Repository key={item.id} {...item} />)}
       </div>
     )
   }

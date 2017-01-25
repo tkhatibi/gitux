@@ -6,6 +6,7 @@ import { Link } from 'react-router'
 
 // components
 import Loading from '../Loading/Loading'
+import Repository from '../Repository/Repository'
 
 // actions
 import { getCurrentUserRepositories } from '../../actions/repository-actions'
@@ -20,7 +21,7 @@ class Repositories extends Component {
     }
     return (
       <div>
-        {JSON.stringify(this.props.repositories)}
+        {this.props.repositories.map(item => <Repository key={item.id} {...item} />)}
       </div>
     )
   }
