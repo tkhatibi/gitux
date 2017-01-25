@@ -2,6 +2,7 @@ import * as TYPES from '../actions'
 
 const initialState = {
   current: null,
+  forkFilter: false,
   search: {
     result: null,
     // lastTime: Date.now(),
@@ -16,6 +17,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         current: action.response.data,
+      }
+    case `${TYPES.TOGGLE_FORK_FILTER}`:
+      return {
+        ...state,
+        forkFilter: !state.forkFilter,
       }
     case `${TYPES.SEARCH_REPOSITORIES}_REQUEST`:
       return {
