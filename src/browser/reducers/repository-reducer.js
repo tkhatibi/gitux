@@ -23,6 +23,11 @@ export default function(state = initialState, action) {
         ...state,
         forkFilter: !state.forkFilter,
       }
+    case `${TYPES.FORK_REPOSITORY}_SUCCESS`:
+      return {
+        ...state,
+        current: null,
+      }
     case `${TYPES.SEARCH_REPOSITORIES}_REQUEST`:
       return {
         ...state,

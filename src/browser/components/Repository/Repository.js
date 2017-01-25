@@ -11,6 +11,9 @@ import {
 import RaisedButton from 'material-ui/RaisedButton'
 import Chip from 'material-ui/Chip'
 
+// actions
+import { forkRepository } from '../../actions/repository-actions'
+
 const Repository = props => (
   <Card style={{marginTop: 20}}>
     <CardHeader
@@ -33,6 +36,7 @@ const Repository = props => (
         label={`Fork (${props.forks_count})`}
         disabled={!props.isLoggedIn || !!props.fork}
         primary={true}
+        onTouchTap={props.forkRepository}
       />
       <RaisedButton
         label={`Issue (${props.open_issues_count})`}
@@ -53,6 +57,7 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
+  forkRepository: () => dispatch(forkRepository(ownProps.full_name))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Repository)

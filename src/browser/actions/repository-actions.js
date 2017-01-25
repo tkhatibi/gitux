@@ -46,3 +46,9 @@ export const navigateToSearch = q => (dispatch, getState) => {
 export const toggleForkFilter = () => ({
   type: TYPES.TOGGLE_FORK_FILTER,
 })
+
+export const forkRepository = fullName => ({
+  type: TYPES.FORK_REPOSITORY,
+  callAPI: () => axios().post(`/repos/${fullName}/forks`),
+  fullName,
+})
