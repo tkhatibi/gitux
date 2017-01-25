@@ -1,3 +1,15 @@
+# Setup
+
+`git clone https://github.com/2rajpx/gitux.git gitux`
+
+`cd gitux`
+
+`npm install` to install dependencies
+
+`npm start` to tun webserver
+
+`npm run dev` to make bundle file
+
 see https://vimeo.com/173947281
 
 # Redirect users to request GitHub access
