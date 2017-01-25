@@ -6,7 +6,7 @@
 
 `npm install` to install dependencies
 
-`npm start` to tun webserver
+`npm start` to run webserver
 
 `npm run dev` to make bundle file
 
