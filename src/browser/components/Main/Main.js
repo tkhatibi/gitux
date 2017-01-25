@@ -28,7 +28,9 @@ class Main extends Component {
       <MuiThemeProvider>
         <div>
           <TopBar />
-          {this.props.children}
+          <div style={{margin: 20}}>
+            {this.props.children}
+          </div>
         </div>
       </MuiThemeProvider>
     )

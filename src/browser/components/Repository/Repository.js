@@ -12,7 +12,7 @@ import RaisedButton from 'material-ui/RaisedButton'
 import Chip from 'material-ui/Chip'
 
 const Repository = props => (
-  <Card>
+  <Card style={{marginTop: 20}}>
     <CardHeader
       title={props.full_name}
       subtitle={props.private ? 'Private' : 'Public'}
@@ -24,10 +24,26 @@ const Repository = props => (
       <p><b>Last Update : </b>{props.updated_at}</p>
     </CardText>
     <CardActions>
-      <RaisedButton label={`Star (${props.stargazers_count})`} disabled={!props.isLoggedIn} />
-      <RaisedButton label={`Fork (${props.forks_count})`} disabled={!props.isLoggedIn || !!props.fork} />
-      <RaisedButton label={`Issue (${props.open_issues_count})`} disabled={!props.isLoggedIn} />
-      <RaisedButton label={`Watch (${props.watchers_count})`} disabled={!props.isLoggedIn} />
+      <RaisedButton
+        label={`Star (${props.stargazers_count})`}
+        disabled={!props.isLoggedIn}
+        primary={true}
+      />
+      <RaisedButton
+        label={`Fork (${props.forks_count})`}
+        disabled={!props.isLoggedIn || !!props.fork}
+        primary={true}
+      />
+      <RaisedButton
+        label={`Issue (${props.open_issues_count})`}
+        disabled={!props.isLoggedIn}
+        primary={true}
+      />
+      <RaisedButton
+        label={`Watch (${props.watchers_count})`}
+        disabled={!props.isLoggedIn}
+        primary={true}
+      />
     </CardActions>
   </Card>
 )
